@@ -1,0 +1,14 @@
+langchain
+ipykernel
+beautifulsoup4
+python-dotenv
+langchain-community
+pypdf
+arxiv
+PyMuPDF
+wikipedia
+googlesearch-python
+faiss-cpu
+langchain-chroma
+streamlit
+langchain-groq
