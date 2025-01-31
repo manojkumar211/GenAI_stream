@@ -51,7 +51,7 @@ print(text_splitter.cts_doc[1].page_content)
 # Embedded Techniques:
 
 class oll_embeddings:
-    oll_ai=OllamaEmbeddings(model="text-embedding-3-large")
+    oll_ai=OllamaEmbeddings(model="gemma2:2b")
     oll_ai_emb=oll_ai.embed_documents(text_splitter.cts_doc)
     def __init__(self,oll_ai_emb):
         self.oll_ai_emb=oll_ai_emb
