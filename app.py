@@ -5,7 +5,18 @@ import streamlit as st
 
 # Load the PDF file
 
-pdf_load=PyPDFLoader("C:/Users/Archana Siripuram/Desktop/attention-is-all-you-need-Paper.pdf")
+st_file=st.file_uploader("Upload a PDF file :",type="pdf")
+
+if st_file is not None:
+    pdf_load=PyPDFLoader(st_file)
+    pdf_text=""
+
+    for page in pdf_load.load():
+        pdf_text+=page.page_content
+
+    st.write("PDF loaded successfully!")
+    st.write(pdf_text)
+
 
 st.header("My New Generative AI project")
 st.logo('C:/Users/Archana Siripuram/Desktop/ge2.png',size="large")
