@@ -64,7 +64,7 @@ class oll_embeddings:
 # Vector Store Database:
 
 class vector_store_faiss:
-    faiss_vector=FAISS(text_splitter.cts_doc, oll_embeddings.oll_emd)
+    faiss_vector=FAISS(text_splitter.cts_doc, oll_embeddings.oll_emd,docstore=True,index_to_docstore_id=True)
     retriever_vec=faiss_vector.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
     def __init__(self,faiss_vector,retriever_vec):
