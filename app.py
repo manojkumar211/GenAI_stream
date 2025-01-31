@@ -1,6 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 import streamlit as st
+from langchain_community.embeddings import OllamaEmbeddings, OpenAIEmbeddings, HuggingFaceEmbeddings
 
 
 # Load the PDF file
@@ -46,3 +47,15 @@ class text_splitter:
 print(text_splitter.cts_doc[0].page_content)
 print("##"*50)
 print(text_splitter.cts_doc[1].page_content)
+
+# Embedded Techniques:
+
+class open_embeddings:
+    open_ai_emb=OpenAIEmbeddings(model="text-embedding-3-large")
+    def __init__(self,open_ai_emb):
+        self.open_ai_emb=open_ai_emb.embed_documents(text_splitter)
+
+    def embed_open(self):
+        return self.open_ai_emb
+    
+print(open_embeddings.open_ai_emb[0])
