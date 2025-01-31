@@ -20,14 +20,14 @@ st.header("My New Generative AI project")
 st.logo('C:/Users/Archana Siripuram/Desktop/ge2.png',size="large")
 st.image('C:/Users/Archana Siripuram/Desktop/ge1.jpg')
 
-class pdf_loader:
+"""class pdf_loader:
     pdf_doc=pdf_load.load()
 
     def __init__(self, pdf_doc):
         self.pdf_doc=pdf_doc
 
     def pdf_load_doc(self):
-        return self.pdf_doc
+        return self.pdf_doc"""
         
 
 print(pdf_loader.pdf_doc[0].page_content)
