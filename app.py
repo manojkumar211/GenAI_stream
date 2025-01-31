@@ -65,7 +65,7 @@ class oll_embeddings:
 
 class vector_store_faiss:
     faiss_vector=FAISS(text_splitter.cts_doc, oll_embeddings.oll_emd)
-    retriever_vec=faiss_vector.as_retriever()
+    retriever_vec=faiss_vector.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
     def __init__(self,faiss_vector,retriever_vec):
         self.faiss_vector=faiss_vector
@@ -76,5 +76,4 @@ class vector_store_faiss:
     def vector_retriever(self):
         return self.retriever_vec
     
-# vector_store_faiss.faiss_vector.save_local("faiss_vectoreDB")
-print(vector_store_faiss.retriever_vec.invoke("what is attenction"))
+vector_store_faiss.faiss_vector.save_local("faiss_vectoreDB")
