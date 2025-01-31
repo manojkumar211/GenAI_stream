@@ -51,9 +51,10 @@ print(text_splitter.cts_doc[1].page_content)
 # Embedded Techniques:
 
 class open_embeddings:
-    open_ai_emb=OpenAIEmbeddings(model="text-embedding-3-large")
+    open_ai=OpenAIEmbeddings(model="text-embedding-3-large")
+    open_ai_emb=open_ai.embed_documents(text_splitter)
     def __init__(self,open_ai_emb):
-        self.open_ai_emb=open_ai_emb.embed_documents(text_splitter)
+        self.open_ai_emb=open_ai_emb
 
     def embed_open(self):
         return self.open_ai_emb
