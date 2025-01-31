@@ -40,7 +40,7 @@ class text_splitter:
         chunk_size=2000,
         chunk_overlap=500
 )
-    cts_doc=cts_gen.split_documents(pdf_loader.pdf_doc)
+    cts_doc=cts_gen.split_documents(pdf_text)
     def __init__(self,cts_gen,cts_doc):
         self.cts_gen=cts_gen
         self.cts_doc=cts_doc
