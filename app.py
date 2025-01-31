@@ -76,4 +76,4 @@ class vector_store_faiss:
     def vector_retriever(self):
         return self.retriever_vec
     
-vector_store_faiss.faiss_vector.save_local("faiss_vectoreDB")
+# vector_store_faiss.faiss_vector.save_local("faiss_vectoreDB")
