@@ -11,7 +11,6 @@ st.header("My New Generative AI project")
 st.logo('C:/Users/Archana Siripuram/Desktop/ge2.png',size="large")
 st.image('C:/Users/Archana Siripuram/Desktop/ge1.jpg')
 st.chat_input("Enter your Query Here :")
-st.button("Submit :")
 
 class pdf_loader:
     pdf_doc=pdf_load.load()
