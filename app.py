@@ -5,16 +5,6 @@ import streamlit as st
 
 # Load the PDF file
 
-"""st_file=st.file_uploader("Upload a PDF file :",type="pdf")
-
-if st_file is not None:
-    pdf_load=PyPDFLoader(st_file)
-    pdf_text=""
-
-    for page in pdf_load.load():
-        pdf_text+=page.page_content
-    st.write(pdf_text)"""
-
 pdf_load=PyPDFLoader("C:/Users/Archana Siripuram/Desktop/attention-is-all-you-need-Paper.pdf")
 
 st.header("My New Generative AI project")
@@ -51,9 +41,6 @@ class text_splitter:
     def text_split_doc(self):
         return self.cts_doc
 
-
-"""for i, chunk in enumerate(cts_doc,1):
-    print(f"chunk {i}:\n{chunk}\n{'-'*50}\n")"""
 
 print(text_splitter.cts_doc[0].page_content)
 print("##"*50)
