@@ -20,8 +20,7 @@ class pdf_loader:
         pdf_text=""
 
     for page in pdf_load.load():
-        pdf_text+=page.page_content
-    st.write(pdf_text)
+        pdf_text+=page
 
     def __init__(self, pdf_doc):
         self.pdf_doc=pdf_doc
