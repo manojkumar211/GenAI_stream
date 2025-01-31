@@ -13,8 +13,6 @@ if st_file is not None:
 
     for page in pdf_load.load():
         pdf_text+=page.page_content
-
-    st.write("PDF loaded successfully!")
     st.write(pdf_text)
 
 
