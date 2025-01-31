@@ -22,14 +22,14 @@ class pdf_loader:
     for page in pdf_load.load():
         pdf_text+=page
 
-    def __init__(self, pdf_doc):
-        self.pdf_doc=pdf_doc
+    def __init__(self, pdf_text):
+        self.pdf_text=pdf_text
 
     def pdf_load_doc(self):
-        return self.pdf_doc
+        return self.pdf_text
         
 
-print(pdf_loader.pdf_doc[0].page_content)
+print(pdf_loader.pdf_text[0].page_content)
 
 # Text splitter
 
@@ -39,7 +39,7 @@ class text_splitter:
         chunk_size=2000,
         chunk_overlap=500
 )
-    cts_doc=cts_gen.split_documents(pdf_loader.pdf_doc)
+    cts_doc=cts_gen.split_documents(pdf_loader.pdf_text)
     def __init__(self,cts_gen,cts_doc):
         self.cts_gen=cts_gen
         self.cts_doc=cts_doc
