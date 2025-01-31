@@ -30,7 +30,7 @@ st.image('C:/Users/Archana Siripuram/Desktop/ge1.jpg')
         return self.pdf_doc"""
         
 
-print(pdf_loader.pdf_doc[0].page_content)
+"""print(pdf_loader.pdf_doc[0].page_content)"""
 
 # Text splitter
 
