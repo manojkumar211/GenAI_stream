@@ -2,6 +2,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 import streamlit as st
 from langchain_community.embeddings import OllamaEmbeddings, OpenAIEmbeddings, HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 
 
 # Load the PDF file
@@ -51,12 +52,28 @@ print(text_splitter.cts_doc[1].page_content)
 # Embedded Techniques:
 
 class oll_embeddings:
-    oll_ai=OllamaEmbeddings(model="gemma2:2b")
-    oll_ai_emb=oll_ai.embed_documents(text_splitter.cts_doc)
-    def __init__(self,oll_ai_emb):
-        self.oll_ai_emb=oll_ai_emb
+    oll_emd=OllamaEmbeddings(model="gemma2:2b")
+    def __init__(self,oll_emd):
+        self.oll_emd=oll_emd
 
     def embed_open(self):
-        return self.oll_ai_emb
+        return self.oll_emd
     
-print(oll_embeddings.oll_ai_emb[0])
+
+# Vector Store Database:
+
+class vector_store_faiss:
+    faiss_vector=FAISS(text_splitter.cts_doc, oll_embeddings.oll_emd)
+    retriever_vec=faiss_vector.as_retriever()
+
+    def __init__(self,faiss_vector,retriever_vec):
+        self.faiss_vector=faiss_vector
+        self.retriever_vec=retriever_vec
+
+    def vector_search(self):
+        return self.faiss_vector
+    def vector_retriever(self):
+        return self.retriever_vec
+    
+vector_store_faiss.faiss_vector.save_local("faiss_vectoreDB")
+print(vector_store_faiss.retriever_vec.invoke("what is attenction"))
