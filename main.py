@@ -26,7 +26,7 @@ def vector_embedding():
     st.session_state.splitter=RecursiveCharacterTextSplitter(separators="\n\n",chunk_size=2000,chunk_overlap=500)
     st.session_state.chunks=st.session_state.splitter.split_documents(st.session_state.document[:30])
     st.session_state.embedding=OllamaEmbeddings(model="gemma2:2b")
-    st.session_state.vector_store=FAISS(st.session_state.chunks, st.session_state.embedding,docstore=False,index_to_docstore_id=False)
+    st.session_state.vector_store=FAISS(st.session_state.chunks, st.session_state.embedding,docstore=True,index_to_docstore_id=True)
     
 
 
