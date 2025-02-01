@@ -4,6 +4,10 @@ import streamlit as st
 from langchain_community.embeddings import OpenAIEmbeddings, HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_ollama import OllamaEmbeddings
+from langchain_community.llms import ollama
+from langchain.prompts import ChatPromptTemplate
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain.chains import create_retriever_chain
 
 
 # Load the PDF file
@@ -77,3 +81,10 @@ class vector_store_faiss:
         return self.retriever_vec
     
 # vector_store_faiss.faiss_vector.save_local("faiss_vectoreDB")
+
+
+
+
+
+
+
