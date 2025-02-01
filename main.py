@@ -60,9 +60,9 @@ query=st.text_input("Enter your Question regards Attention mechanism :")
 if query:
     document_chain=create_stuff_documents_chain(llm,prompt)
     retriever=st.session_state.vector_store.as_retriever()
-    retriever_chain=create_retrieval_chain([retriever,document_chain])
+    retriever_chain=create_retrieval_chain(retriever,document_chain)
     start=time.process_time()
-    response=retriever_chain.invoke({'input':query})
+    response=retriever_chain.invoke([{'input':query}])
     print("response time :",time.process_time()-start)
     st.write(response['answer'])
 
