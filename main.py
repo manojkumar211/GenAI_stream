@@ -31,7 +31,7 @@ def vector_embedding():
 
 st.title("Gen-AI Attention mechanism")
 
-llm=ollama(model="ollama run llama2")
+llm=ollama(model="Llama3-8b-8192")
 
 prompt=ChatPromptTemplate.from_template(
     """
