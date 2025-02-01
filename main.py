@@ -15,8 +15,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-os.environ['OPENAI_API_KEY']=os.environ.get("OPENAI_API_KEY")
-
+os.environ['GROQ_API_KEY']=os.environ.get("GROQ_API_KEY")
+groq_api_key=os.getenv("GROQ_API_KEY")
 
 
 
@@ -31,7 +31,7 @@ def vector_embedding():
 
 st.title("Gen-AI Attention mechanism")
 
-llm=ollama(model="Llama3-8b-8192")
+llm=ChatGroq(groq_api_key=groq_api_key,model="Llama3-8b-8192")
 
 prompt=ChatPromptTemplate.from_template(
     """
