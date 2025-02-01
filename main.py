@@ -47,15 +47,15 @@ Questions:{input}
 )
 
 
-prompt1=st.text_input("Enter your Question regards Attention mechanism :")
-
-
 
 if st.button("Document Embedding"):
     vector_embedding()
     st.success("Document Embedding is done successfully")
 
 import time
+
+prompt1=st.text_input("Enter your Question regards Attention mechanism :")
+
 
 if prompt1:
     document_chain=create_stuff_documents_chain(llm,prompt)
