@@ -9,7 +9,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.llms import openai,ollama
 from langchain.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import retrieval
+from langchain.chains.retrieval import create_retrieval_chain
 from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
@@ -58,8 +58,8 @@ import time
 
 if prompt1:
     document_chain=create_stuff_documents_chain(llm,prompt)
-    retriever=st.session_state.vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 3})
-    retriever_chain=retrieval.create_retrieval_chain(retriever,document_chain)
+    retriever=st.session_state.vector_store.as_retriever()
+    retriever_chain=create_retrieval_chain(retriever,document_chain)
     start=time.process_time()
     response=retriever_chain.invoke({'input':prompt1})
     print("response time :",time.process_time()-start)
