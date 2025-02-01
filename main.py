@@ -35,12 +35,13 @@ st.title("Gen-AI Attention mechanism")
 llm=ChatGroq(groq_api_key=groq_api_key,model="Llama3-8b-8192")
 
 prompt=ChatPromptTemplate.from_template(
-    """
-    Given the context: {context}
-    You are an AI assistant. You must generate a detailed and long answer.
-    Your response should be in format:
-    Question: {question}
-    Answer: {answer}
+"""
+Answer the questions based on the provided context only.
+Please provide the most accurate response based on the question
+<context>
+{context}
+<context>
+Questions:{input}
 
 """
 )
@@ -61,7 +62,7 @@ if prompt1:
     retriever=st.session_state.vector_store.as_retriever()
     retriever_chain=create_retrieval_chain(retriever,document_chain)
     start=time.process_time()
-    response=retriever_chain.invoke({'question':prompt1})
+    response=retriever_chain.invoke({'input':prompt1})
     print("response time :",time.process_time()-start)
     st.write(response['answer'])
 
