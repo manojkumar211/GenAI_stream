@@ -50,7 +50,7 @@ Questions:{input}
 
 if st.button("Document Embedding"):
     vector_embedding()
-    st.success("Document Embedding is done successfully")
+    st.write("Vector Store DB Is Ready")
 
 import time
 
