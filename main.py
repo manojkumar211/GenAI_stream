@@ -59,7 +59,7 @@ import time
 if prompt1:
     document_chain=create_stuff_documents_chain(llm,prompt)
     retriever=st.session_state.vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 3})
-    retriever_chain=[retriever | document_chain]
+    retriever_chain=retrieval_qa(retriever,document_chain)
     start=time.process_time()
     response=retriever_chain.invoke({'input':prompt1})
     print("response time :",time.process_time()-start)
